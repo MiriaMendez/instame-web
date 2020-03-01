@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import AuthenticatedRoute from './components/AuthenticatedRoute';
+import Home from './components/Home';
+import Login from './components/Login';
+import Register from './components/Register';
+import User from './components/User';
+import Post from './components/Post';
+import Edit from './components/Edit';
+import Header from './components/Header';
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+
+      <main className="p-3">
+        <Switch>
+          <Route exact path="/login" component={Login}/>
+          <AuthenticatedRoute exact path="/" component={Home} />
+          <AuthenticatedRoute exact path="/register" component={Register} />
+          <AuthenticatedRoute exact path="/users/:id" component={User}/>
+          <AuthenticatedRoute exact path="/users/:id/edit" component={Edit}/>
+          <AuthenticatedRoute exact path="/posts/:id" component={Post}/>
+
+        </Switch>
+      </main>
     </div>
   );
 }
