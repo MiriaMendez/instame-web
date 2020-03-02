@@ -27,10 +27,13 @@ const fetchPosts = () => http.get(`/posts`)
 
 const likePost = (id) => http.post(`/post/${id}/like`)
 
+const comments = (data) => http.post(`/post/${data.id}/comments/create`, {text: data.comment})
+
 export default {
     login,
     logout,
     fetchPost,
     likePost,
-    fetchPosts
+    fetchPosts,
+    comments
 }
