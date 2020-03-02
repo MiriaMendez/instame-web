@@ -25,7 +25,7 @@ function App() {
           <AuthenticatedRoute exact path="/register" component={Register} />
           <AuthenticatedRoute exact path="/users/:id" component={User}/>
           <AuthenticatedRoute exact path="/users/:id/edit" component={Edit}/>
-          <AuthenticatedRoute exact path="/posts/:id" component={Post}/>
+          <AuthenticatedRoute exact path="/post/:id" component={Post}/>
 
         </Switch>
       </main>

@@ -21,13 +21,16 @@ const login = ({ email, password }) => http.post('/login', { email, password})
 
 const logout = () => http.post('/logout', {})
 
-const posts = () => http.get('/posts')
+const fetchPost = (id) => http.get(`/post/${id}`)
+
+const fetchPosts = () => http.get(`/posts`)
 
 const likePost = (id) => http.post(`/post/${id}/like`)
 
 export default {
     login,
     logout,
-    posts,
-    likePost
+    fetchPost,
+    likePost,
+    fetchPosts
 }

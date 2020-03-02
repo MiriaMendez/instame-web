@@ -20,7 +20,7 @@ const PostItem = ({ post, onLike }) => {
                     {post.likes.length}
                 </button>
 
-                <Link to={`/posts/${post.id}`}>Show more</Link>
+                <Link to={`/post/${post.id}`}>Show more</Link>
             </div>
 
             <p>{post.body}</p>

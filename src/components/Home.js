@@ -10,7 +10,7 @@ class Home extends React.Component {
     }
 
     fetchPosts = () => {
-        AppService.posts()
+        AppService.fetchPosts()
             .then(posts => {
                 this.setState({ loading: false, posts })
             })
