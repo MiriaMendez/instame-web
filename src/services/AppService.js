@@ -29,11 +29,14 @@ const likePost = (id) => http.post(`/post/${id}/like`)
 
 const comments = (data) => http.post(`/post/${data.id}/comments/create`, {text: data.comment})
 
+const users = (id) => http.get(`/users/${id}`)
+
 export default {
     login,
     logout,
     fetchPost,
     likePost,
     fetchPosts,
-    comments
+    comments,
+    users
 }

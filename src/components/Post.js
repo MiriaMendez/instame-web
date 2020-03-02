@@ -11,10 +11,8 @@ class Posts extends React.Component {
     }
 
     userPost = () => {
-        console.log(this.props.match.params.id)
         AppService.fetchPost(this.props.match.params.id)
         .then(post => {
-            console.log(post)
             this.setState({ 
                 loading: false, 
                 user: post.user.username,
@@ -43,7 +41,6 @@ class Posts extends React.Component {
     }
 
     render() {
-        console.log(this.state.comments)
         return (
             <div>
                 
