@@ -1,38 +1,29 @@
 import React from 'react'
 import AppServices from '../services/AppService'
-
+import PostPreview from './PostPreview'
+import './User.css';
+import { Link } from 'react-router-dom';
 
 class User extends React.Component {
 
     state = {
-        data : {
-            name: '',
-            username: '',
-            email:'',
-            password:'',
-            description: '',
-            img: '',
-            phone: Number,
-            gender: ''
-        },
+        name: '',
+        username: '',
+        email:'',
+        password:'',
+        description: '',
+        img: '',
+        phone: Number,
+        gender: '',
+        posts: [],
         loading: true,
-      
     }
 
-    userList = () => {
-        AppServices.userList(this.state.data.username)
+    componentDidMount = () => {
+        AppServices.user(this.props.match.params.id)
         .then(user => {
-            this.state({
-                data: {
-                    name: user.name,
-                    username: user.username,
-                    email: user.email,
-                    password: user.password,
-                    description: user.description,
-                    img: user.img,
-                    phone: user.phone,
-                    gender: user.gender
-                },
+            this.setState({
+                ...user,
                 loading: false
             })
         })
@@ -40,10 +31,23 @@ class User extends React.Component {
 
     render() {
         return (
-            <div className="User">
-                    {this.state.userList.map(users => (
-                        <username key={this.state.data.user.username} user={this.state.data.name}/>
-                    ))}
+            <div className="user">
+                <div className="profile-detail">
+                    <div className="profile-picture" style={{background: `url(${this.state.img}) no-repeat center / cover`}}></div>
+                    <div>
+                        <Link to={`/users/${this.state.id}`} className="mb-1 d-block">
+                        @{this.state.username}
+                        </Link>
+
+                        <div className="bio-detail">
+                            {this.state.description}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="posts-wrapper">
+                    {this.state.posts.map(post =>  <PostPreview {...post} /> )}
+                </div>
             </div>
         )
     }

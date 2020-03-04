@@ -1,0 +1,29 @@
+.posts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.preview-image {
+    width: 90%;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-right: 20px;
+
+    /* background-clip: padding-box;
+    background-size: cover;
+    background-position: center center; */
+    
+}
+
+.profile-detail {
+    display: flex;
+    align-items: center;
+}
+
+.bio.detail {
+    margin-left: 20px;
+}

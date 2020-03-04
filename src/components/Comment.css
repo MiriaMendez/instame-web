@@ -1,0 +1,8 @@
+.comment {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.comment a {
+    margin-right: 10px;
+}

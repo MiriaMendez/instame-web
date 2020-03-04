@@ -1,5 +1,7 @@
 import React from 'react';
 import AppService from '../services/AppService';
+import Comment from './Comment';
+import "./Post.css"
 
 class Posts extends React.Component {
     state = {
@@ -44,18 +46,15 @@ class Posts extends React.Component {
         return (
             <div>
                 
-                <img src={this.state.img} alt="Smiley face" height="100%" width="100%"></img>
-                <p>{this.state.user}</p>
-                <div>{this.state.comments.map(e=>Object.values(e).map((x, i)=><p key={i}>{x}</p>))}</div>
-                <div>
+                <img className="post-photo" src={this.state.img} alt="Smiley face" height="100%" width="100%" />
+                
+                {this.state.comments.map(comment => <Comment {...comment} />)}
                     <form onSubmit={this.onClickComment}> 
-                        <textarea className="comment-area witdh: 100" value={this.state.value} onChange={this.handleChange}/>
+                        <textarea className="comment-area" value={this.state.value} onChange={this.handleChange}/>
                         <button type="submit" className="btn btn-block btn-primary mb-3">
                             Publicar
                         </button>
                     </form>
-                    
-                </div>
             </div>
 
         )

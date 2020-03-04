@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./PostItem.css"
 
 const PostItem = ({ post, onLike }) => {
     const handleLike = () => {
